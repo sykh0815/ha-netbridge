@@ -1,0 +1,17 @@
+{
+  "config": {
+    "flow_title": "NetBridge {name}",
+    "step": {
+      "user": {
+        "title": "NetBridge",
+        "description": "Enter the IP address or name of the NetBridge and the access token (web interface, section \"Home Assistant\").",
+        "data": { "host": "Host", "token": "Access token" }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot reach the NetBridge.",
+      "invalid_auth": "Access token rejected."
+    },
+    "abort": { "already_configured": "This NetBridge is already set up." }
+  }
+}
