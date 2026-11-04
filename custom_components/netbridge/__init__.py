@@ -7,7 +7,7 @@ from homeassistant.core import HomeAssistant
 from .const import DOMAIN
 from .coordinator import NetBridgeCoordinator
 
-PLATFORMS = ["binary_sensor", "sensor", "switch", "button"]
+PLATFORMS = ["binary_sensor", "sensor", "switch", "button", "device_tracker"]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

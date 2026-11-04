@@ -40,6 +40,9 @@ class NetBridgeApi:
     async def set_display(self, on: bool) -> dict:
         return await self._request("POST", "/api/display", on="1" if on else "0")
 
+    async def kick(self, mac: str) -> None:
+        await self._request("POST", "/api/kick", mac=mac)
+
     async def restart(self) -> None:
         await self._request("POST", "/api/restart")
 
