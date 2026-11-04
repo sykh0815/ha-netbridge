@@ -1,12 +1,16 @@
 {
   "domain": "netbridge",
   "name": "WT32-ETH01 NetBridge",
-  "codeowners": ["@sykh0815"],
+  "codeowners": [
+    "@sykh0815"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/sykh0815/ha-netbridge",
-  "issue_tracker": "https://github.com/sykh0815/ha-netbridge/issues",
   "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/sykh0815/ha-netbridge/issues",
   "requirements": [],
-  "version": "1.2.0",
-  "zeroconf": ["_netbridge._tcp.local."]
+  "version": "1.2.1",
+  "zeroconf": [
+    "_netbridge._tcp.local."
+  ]
 }
