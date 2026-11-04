@@ -23,8 +23,9 @@ def track_new_devices(entry, coordinator, add_entities, factory) -> None:
     @callback
     def _add() -> None:
         new = []
-        for dev in (coordinator.data or {}).get("devices", []):
-            mac = dev["mac"].lower()
+        data = coordinator.data or {}
+        macs = [dev["mac"].lower() for dev in data.get("devices", [])] + [m.lower() for m in data.get("blocked", [])]
+        for mac in macs:
             if mac not in known:
                 known.add(mac)
                 new.append(factory(coordinator, mac))
