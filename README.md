@@ -5,9 +5,14 @@
 HACS integration for the [WT32-ETH01-NetBridge](https://github.com/sykh0815/WT32-ETH01-NetBridge) firmware (version 3.24.0 or newer). No MQTT broker needed: Home Assistant polls the device over HTTP every 10 s.
 
 ## Installation
-1. HACS → ⋮ → *Custom repositories* → add this repository as type *Integration*.
-2. Install "WT32-ETH01 NetBridge" and restart Home Assistant.
-3. The device is discovered automatically (mDNS). Otherwise: *Settings → Devices & services → Add integration → NetBridge*.
+
+[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sykh0815&repository=ha-netbridge&category=integration)
+
+1. Click the button above: it opens this repository in the HACS of your Home Assistant, then choose *Download*. (Manually: HACS → ⋮ → *Custom repositories* → this repository as type *Integration*.)
+2. Restart Home Assistant.
+3. The device is discovered automatically (mDNS). Otherwise click the button below or use *Settings → Devices & services → Add integration → NetBridge*.
+
+   [![Open your Home Assistant instance and start setting up NetBridge.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=netbridge)
 4. Enter the **access token** shown in the NetBridge web interface (section "Home Assistant") and, if discovery is not used, the device's IP address.
 
 ## Entities

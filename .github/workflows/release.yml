@@ -1,0 +1,32 @@
+# Legt bei jeder neuen Version in manifest.json automatisch Tag und Release an.
+# Creates a tag and release automatically whenever the version in manifest.json changes.
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - custom_components/netbridge/manifest.json
+      - .github/workflows/release.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create release if the version is new
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(jq -r .version custom_components/netbridge/manifest.json)
+          tag="v${version}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag exists"
+            exit 0
+          fi
+          (cd custom_components && zip -r ../netbridge.zip netbridge -x '*__pycache__*')
+          gh release create "$tag" netbridge.zip --target "$GITHUB_SHA" --title "$tag" --generate-notes
